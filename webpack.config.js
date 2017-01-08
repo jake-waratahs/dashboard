@@ -18,7 +18,8 @@ module.exports = {
                 test: /\.js$/, 
                 loader: 'babel-loader',
                 query: {
-                    presets: ['es2015', 'react']
+                    presets: ['es2015', 'react'],
+                    plugins: ['transform-decorators-legacy']
                 },
                 recursive: true, 
                 include: [path.join(__dirname, 'src')]
@@ -49,5 +50,6 @@ module.exports = {
         alias: {
             'semantic-ui': bower_dir + '/semantic/dist'
         }
-    }
+    },
+    devtool: 'source-map'
 }
