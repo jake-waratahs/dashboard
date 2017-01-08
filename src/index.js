@@ -7,17 +7,15 @@ import 'semantic-ui/semantic.min.css'
 import {configureStore} from './store'
 
 import Wrapper from './components/Wrapper'
-import Sydney from './components/Sydney'
-import SanFrancisco from './components/SanFrancisco'
+import City from './components/City'
 
 let store = configureStore({})
-console.log(store.getState())
 
 render(
     <Provider store={store}>
         <Wrapper>
-            <Sydney />
-            <SanFrancisco />
+            <City name="Sydney"/>
+            <City name="San Francisco" />
         </Wrapper>
     </Provider>, 
     document.getElementById('root')
