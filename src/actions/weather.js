@@ -1,15 +1,40 @@
+import fetch from 'isomorphic-fetch'
 
+import { OWM_KEY } from '../config'
 
-export const UPDATE_WEATHER = 'UPDATE_WEATHER'
+export const UPDATE_WEATHER_REQUEST = 'UPDATE_WEATHER_REQUEST'
+export const UPDATE_WEATHER_FAILURE = 'UPDATE_WEATHER_FAILURE'
+export const UPDATE_WEATHER_SUCCESS = 'UPDATE_WEATHER_SUCCESS'
 
-export const updateWeather = (name) => {
-    /* Eventually this will be a request to the OpenWeatherMap API */
-    let range = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-    let temp = range[Math.floor(Math.random()*range.length)]
-    let action = { 
-        type: UPDATE_WEATHER,
-        weather: {}
+function updateWeatherRequest(name){
+    return { type: UPDATE_WEATHER_REQUEST, city: name }
+}
+
+function updateWeatherSuccess(name, weather){
+    return { 
+        type: UPDATE_WEATHER_SUCCESS, 
+        city: name,
+        weather: weather
     }
-    action.weather[name] = temp
-    return action
-} 
+}
+
+function updateWeatherFailure(name){
+    return { type: UPDATE_WEATHER_FAILURE, city: name }  
+}
+
+export const fetchWeather = (name) => {
+    return dispatch => {
+        dispatch(updateWeatherRequest(name))
+        return fetch(
+            `http://api.openweathermap.org/data/2.5/weather?q=${name}&APPID=${OWM_KEY}&units=metric`
+        ).then(response => response.json())
+        .then(res => {
+            let weather = {
+                curr: res.main.temp,
+                min: res.main.temp_min,
+                max: res.main.temp_max
+            }
+            return dispatch(updateWeatherSuccess(name, weather))
+        })
+    }
+}

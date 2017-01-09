@@ -1,26 +1,32 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { updateWeather } from '../actions/weather'
+import { fetchWeather } from '../actions/weather'
 
 const mapStateToProps = state => ({
-    weather: state.weather
+    weather: {...state.weather}
 })
 
 const mapDispatchToProps = {
-    updateWeather: updateWeather
+    fetchWeather: fetchWeather
 }
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class City extends React.Component {
 
     componentWillMount() {
-        this.props.updateWeather(this.props.name)
+        this.props.fetchWeather(this.props.name)
     }
 
     render() {
         return <div className="eight wide column">      
-            <h1>{this.props.name}: {this.props.weather[this.props.name]}</h1>
+            <h1>{this.props.name}: 
+                {(() => {
+                    if (this.props.weather[this.props.name] && !this.props.weather[this.props.name].isFetching) {
+                        return this.props.weather[this.props.name].weather.curr
+                    }
+                })()}
+            </h1>
         </div>
     }
 }

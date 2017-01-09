@@ -1,3 +1,5 @@
+import 'babel-polyfill'
+
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
@@ -14,7 +16,7 @@ let store = configureStore({})
 render(
     <Provider store={store}>
         <Wrapper>
-            <City name="Sydney"/>
+            <City name="Sydney" />
             <City name="San Francisco" />
         </Wrapper>
     </Provider>, 
