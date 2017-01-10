@@ -32,7 +32,8 @@ export const fetchWeather = (name) => {
             let weather = {
                 curr: res.main.temp,
                 min: res.main.temp_min,
-                max: res.main.temp_max
+                max: res.main.temp_max,
+                icon: res.weather[0].icon
             }
             return dispatch(updateWeatherSuccess(name, weather))
         }, () => dispatch(updateWeatherFailure(name)))

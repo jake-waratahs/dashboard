@@ -17,8 +17,8 @@ render(
     <Provider store={store}>
         <Wrapper>
             <div className="ui row">
-                <City name="Sydney" />
-                <City name="San Francisco" />
+                <City name="Sydney" news="abc-news-au"/>
+                <City name="San Francisco" news="usa-today"/>
             </div>
             <div className="ui row">
                 {/* Next Caltrain*/}

@@ -30,8 +30,8 @@ export default class Weather extends React.Component {
                 } else {
                     return <div className="ui items">
                         <div className="item">
-                            <div className="image">
-                                {/* image here*/}
+                            <div className="ui tiny image">
+                                <img src={`http://openweathermap.org/img/w/${this.props.weather[this.props.city].weather.icon}.png`} />
                             </div>
                             <div className="content">{this.props.weather[this.props.city].weather.curr}&deg;C</div>
                         </div>

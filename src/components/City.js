@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Weather from './Weather'
+import News from './News'
 
 export default class City extends React.Component {
 
@@ -8,7 +9,7 @@ export default class City extends React.Component {
         return <div className="six wide column" style={{textAlign: 'center'}}>      
             <h1 className="ui header">{this.props.name}</h1>
             <Weather city={this.props.name} />
-            {/* <News source=`${this.props.news}` /> */}
+            <News source={this.props.news} />
         </div>
     }
 }
