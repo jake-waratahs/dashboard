@@ -1,8 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-var HappyPack = require('happypack')
-var path = require('path')
 
 var bower_dir = path.join(__dirname, 'bower_components')
 

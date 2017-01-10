@@ -35,6 +35,6 @@ export const fetchWeather = (name) => {
                 max: res.main.temp_max
             }
             return dispatch(updateWeatherSuccess(name, weather))
-        })
+        }, () => dispatch(updateWeatherFailure(name)))
     }
 }

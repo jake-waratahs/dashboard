@@ -22,7 +22,9 @@ export default class City extends React.Component {
         return <div className="eight wide column">      
             <h1>{this.props.name}: 
                 {(() => {
-                    if (this.props.weather[this.props.name] && !this.props.weather[this.props.name].isFetching) {
+                    if (this.props.weather[this.props.name] && 
+                        !this.props.weather[this.props.name].isFetching &&
+                        !this.props.weather[this.props.name].error) {
                         return this.props.weather[this.props.name].weather.curr
                     }
                 })()}
