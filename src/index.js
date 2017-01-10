@@ -16,8 +16,19 @@ let store = configureStore({})
 render(
     <Provider store={store}>
         <Wrapper>
-            <City name="Sydney" />
-            <City name="San Francisco" />
+            <div className="ui row">
+                <City name="Sydney" />
+                <City name="San Francisco" />
+            </div>
+            <div className="ui row">
+                {/* Next Caltrain*/}
+            </div>
+            <div className="ui row">
+                {/* Exchange Rate*/}
+            </div>
+            <div className="ui row">
+                {/* Flight */}
+            </div>            
         </Wrapper>
     </Provider>, 
     document.getElementById('root')
