@@ -10,8 +10,9 @@ import {configureStore} from './store'
 
 import Wrapper from './components/Wrapper'
 import City from './components/City'
+import Forex from './components/Forex'
 
-let store = configureStore({})
+let store = configureStore()
 
 render(
     <Provider store={store}>
@@ -24,7 +25,7 @@ render(
                 {/* Next Caltrain*/}
             </div>
             <div className="ui row">
-                {/* Exchange Rate*/}
+                <Forex base="USD" currency="AUD"/>
             </div>
             <div className="ui row">
                 {/* Flight */}

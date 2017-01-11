@@ -2,10 +2,12 @@ import { combineReducers } from 'redux'
 
 import weather from './weather'
 import news from './news'
+import forex from './forex'
 
 const dashboardReducer = combineReducers({
     weather,
-    news
+    news,
+    forex
 })
 
 export default dashboardReducer
