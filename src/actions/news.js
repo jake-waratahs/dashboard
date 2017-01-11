@@ -34,7 +34,7 @@ export const fetchNews = (source) => {
         return fetch(`http://newsapi.org/v1/articles?source=${source}&apikey=${NEWSAPI_KEY}`)
         .then(response => response.json())
         .then(res => {
-            let headlines = res.articles.map((article) => article.title)
+            let headlines = res.articles.map((article) => article.title).slice(0, 5)
             return dispatch(updateNewsSuccess(source, headlines))
         }, () => dispatch(updateNewsFailure(source)))
     }

@@ -21,6 +21,15 @@ export default class News extends React.Component {
     }
 
     render() {
-        return <Loading />
+        if (!this.props.news[this.props.source] ||
+            this.props.news[this.props.source].isFetching ||
+            this.props.news[this.props.source].error) {
+            return <Loading />
+        } else {
+            let headlines = this.props.news[this.props.source].headlines
+            return <div className="ui divided list">
+                {headlines.map((headline) => <div className="item">{headline}</div>)}
+            </div>
+        }
     }
 }
