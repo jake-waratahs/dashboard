@@ -17,8 +17,8 @@ render(
     <Provider store={store}>
         <Wrapper>
             <div className="ui row">
-                <City name="Sydney" news="abc-news-au"/>
-                <City name="San Francisco" news="usa-today"/>
+                <City name="Sydney" news="abc-news-au" timezone="Australia/Sydney" />
+                <City name="San Francisco" news="usa-today" timezone="America/Los_Angeles" />
             </div>
             <div className="ui row">
                 {/* Next Caltrain*/}
