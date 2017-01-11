@@ -18,6 +18,8 @@ export default class Weather extends React.Component {
 
     componentWillMount() {
         this.props.fetchWeather(this.props.city)
+        // Update weather every 30 mins
+        setTimeout(() => {this.componentWillMount()}, 30 * 60 * 1000)
     }
 
     render() {
@@ -31,7 +33,9 @@ export default class Weather extends React.Component {
                     <div className="ui tiny image">
                         <img src={`http://openweathermap.org/img/w/${this.props.weather[this.props.city].weather.icon}.png`} />
                     </div>
-                    <div className="content">{this.props.weather[this.props.city].weather.curr}&deg;C</div>
+                    <div className="middle aligned content">
+                        <div className="header">{this.props.weather[this.props.city].weather.curr}&deg;C</div>
+                    </div>
                 </div>
             </div>
         }

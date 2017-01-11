@@ -18,6 +18,8 @@ export default class News extends React.Component {
 
     componentWillMount() {
         this.props.fetchNews(this.props.source)
+        // Update news every 30 mins
+        setTimeout(() => {this.componentWillMount()}, 30 * 60 * 1000)
     }
 
     render() {
