@@ -5,6 +5,11 @@ import Loading from './Loading'
 
 import { fetchForex } from '../actions/forex'
 
+const style = {
+    color: '#fff',
+    fontSize: '2em'
+}
+
 const mapStateToProps = (state) => ({
     forex: {...state.forex}
 })
@@ -24,7 +29,7 @@ export default class Forex extends React.Component {
     }
     
     render() {
-        return <div className="ui segment">
+        return <div style={style}>
             {(() => {
                 if (!this.props.forex.isFetching && !this.props.forex.error){
                     return <p>1 {this.props.forex.base} = {this.props.forex.rate} {this.props.forex.curr}</p>

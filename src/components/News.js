@@ -5,6 +5,17 @@ import Loading from './Loading'
 
 import { fetchNews } from '../actions/news'
 
+const headerStyle = {
+    fontSize: '2em'
+}
+
+const itemStyle = {
+    color: '#fff',
+    fontSize: '1.3em',
+    paddingTop: '10px',
+    paddingBottom: '10px'
+}
+
 const mapStateToProps = (state) => ({
     news: {...state.news}
 })
@@ -23,17 +34,17 @@ export default class News extends React.Component {
     }
 
     render() {
-        return <div className = "ui segment">
-            <h3 className="ui header">Headlines</h3>
+        return <div>
+            <h3 className="ui inverted header" style={headerStyle}>Headlines</h3>
             {(() => {
                 if (!this.props.news[this.props.source] ||
                     this.props.news[this.props.source].isFetching ||
                     this.props.news[this.props.source].error) {
-                        return <Loading />
+                    return <Loading />
                 } else {
                     let headlines = this.props.news[this.props.source].headlines
                     return <div className="ui divided list">
-                        {headlines.map((headline) => <div className="item">{headline}</div>)}
+                        {headlines.map((headline) => <div className="item" style={itemStyle}>{headline}</div>)}
                     </div>
                 }
             })()}
