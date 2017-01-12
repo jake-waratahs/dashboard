@@ -28,13 +28,15 @@ export default class Weather extends React.Component {
             this.props.weather[this.props.city].error) {
             return <Loading />
         } else {
-            return <div className="ui items">
-                <div className="item">
-                    <div className="ui tiny image">
-                        <img src={`http://openweathermap.org/img/w/${this.props.weather[this.props.city].weather.icon}.png`} />
-                    </div>
-                    <div className="middle aligned content">
-                        <div className="header">{this.props.weather[this.props.city].weather.curr}&deg;C</div>
+            return <div className="ui segment">
+                <div className="ui items">
+                    <div className="item">
+                        <div className="ui tiny image">
+                            <img src={`http://openweathermap.org/img/w/${this.props.weather[this.props.city].weather.icon}.png`} />
+                        </div>
+                        <div className="middle aligned content">
+                            <div className="header">{this.props.weather[this.props.city].weather.curr}&deg;C</div>
+                        </div>
                     </div>
                 </div>
             </div>

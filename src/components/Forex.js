@@ -24,7 +24,7 @@ export default class Forex extends React.Component {
     }
     
     render() {
-        return <div className="ui segement">
+        return <div className="ui segment">
             {(() => {
                 if (!this.props.forex.isFetching && !this.props.forex.error){
                     return <p>1 {this.props.forex.base} = {this.props.forex.rate} {this.props.forex.curr}</p>
