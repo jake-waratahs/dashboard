@@ -1,0 +1,5 @@
+body {
+    background: url('/src/img/background.png');
+    background-size: cover;
+    margin-top: 30px;
+}

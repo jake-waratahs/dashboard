@@ -5,12 +5,14 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 
 import 'semantic-ui/semantic.min.css'
+import './style/style.css'
 
 import {configureStore} from './store'
 
 import Wrapper from './components/Wrapper'
 import City from './components/City'
 import Forex from './components/Forex'
+// import Flights from './components/Flights'
 
 let store = configureStore()
 
@@ -28,7 +30,7 @@ render(
                 <Forex base="USD" currency="AUD"/>
             </div>
             <div className="ui row">
-                {/* Flight */}
+                {/*<Flights />*/}
             </div>            
         </Wrapper>
     </Provider>, 
