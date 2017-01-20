@@ -12,7 +12,7 @@ import {configureStore} from './store'
 import Wrapper from './components/Wrapper'
 import City from './components/City'
 import Forex from './components/Forex'
-// import Flights from './components/Flights'
+import Flights from './components/Flights'
 
 let store = configureStore()
 
@@ -30,7 +30,7 @@ render(
                 <Forex base="USD" currency="AUD"/>
             </div>
             <div className="ui row">
-                {/*<Flights />*/}
+                <Flights />
             </div>            
         </Wrapper>
     </Provider>, 

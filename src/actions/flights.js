@@ -6,6 +6,8 @@ import { QPX_KEY } from '../config.js'
 export const UPDATE_FLIGHTS_REQUEST = 'UPDATE_FLIGHTS_REQUEST'
 export const UPDATE_FLIGHTS_SUCCESS = 'UPDATE_FLIGHTS_SUCCESS'
 export const UPDATE_FLIGHTS_FAILURE = 'UPDATE_FLIGHTS_FAILURE'
+export const CHANGE_DEPARTURE_DATE = 'CHANGE_DEPARTURE_DATE'
+export const CHANGE_RETURN_DATE = 'CHANGE_RETURN_DATE'
 
 const requestData = {
     'request': {
@@ -34,18 +36,30 @@ const requestData = {
     }
 }
 
+export const changeDepartureDate = (date) => {
+    return {
+        type: CHANGE_DEPARTURE_DATE,
+        date: date
+    }
+}
+
+export const changeReturnDate = (date) => {
+    return {
+        type: CHANGE_RETURN_DATE,
+        date: date
+    }
+}
+
 function updateFlightsRequest() {
     return {
         type: UPDATE_FLIGHTS_REQUEST
     }
 }
 
-function updateFlightsSuccess(price, departureDate, returnDate) {
+function updateFlightsSuccess(price) {
     return {
         type: UPDATE_FLIGHTS_SUCCESS,
-        price: price,
-        departureDate: departureDate,
-        returnDate: returnDate
+        price: price
     }
 }
 
@@ -81,7 +95,7 @@ export const fetchFlights = () => {
             // console.log('Response recieved')
             // console.log(res)
             let price = res.tripOption[0].saleTotal
-            return dispatch(updateFlightsSuccess(departureDate, returnDate, price))
+            return dispatch(updateFlightsSuccess(price))
         }, () => dispatch(updateFlightsFailure()))
     }
 }

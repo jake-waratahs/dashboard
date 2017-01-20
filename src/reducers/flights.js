@@ -1,7 +1,9 @@
 import {
     UPDATE_FLIGHT_REQUEST,
     UPDATE_FLIGHT_SUCCESS,
-    UPDATE_FLIGHT_FAILURE
+    UPDATE_FLIGHT_FAILURE,
+    CHANGE_DEPARTURE_DATE,
+    CHANGE_RETURN_DATE
 } from '../actions/flights'
 
 export default function(state = {}, action){
@@ -10,10 +12,11 @@ export default function(state = {}, action){
     switch(action.type) {
 
     case UPDATE_FLIGHT_REQUEST:
-        return {
+        newState =  {
             isFetching: true,
             error: false
         }
+        return Object.assign({}, state, newState)
 
     case UPDATE_FLIGHT_SUCCESS:
         newState = {
@@ -27,11 +30,23 @@ export default function(state = {}, action){
         return Object.assign({}, state, newState)
 
     case UPDATE_FLIGHT_FAILURE:
-        return {
+        newState = {
             isFetching: false,
             error: true
         }
+        return Object.assign({}, state, newState)
 
+    case CHANGE_DEPARTURE_DATE:
+        newState = {
+            departureDate: action.date
+        }
+        return Object.assign({}, state, newState)
+
+    case CHANGE_RETURN_DATE:
+        newState = {
+            returnDate: action.date
+        }
+        return Object.assign({}, state, newState)
 
     default:
         return state
