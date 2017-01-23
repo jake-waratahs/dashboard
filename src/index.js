@@ -12,6 +12,7 @@ import {configureStore} from './store'
 import Wrapper from './components/Wrapper'
 import City from './components/City'
 import Forex from './components/Forex'
+import Image from './components/Image'
 // import Flights from './components/Flights'
 
 let store = configureStore()
@@ -24,7 +25,8 @@ render(
                 <City name="San Francisco" news="usa-today" timezone="America/Los_Angeles" />
             </div>
             <div className="ui row">
-                {/* Next Caltrain*/}
+                <Image src="http://www.rms.nsw.gov.au/trafficreports/cameras/camera_images/harbourbridge.jpg" />
+                <Image src="http://www.fogcam.org/fogcam2.jpg" />
             </div>
             <div className="ui row">
                 <Forex base="USD" currency="AUD"/>
