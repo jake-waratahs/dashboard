@@ -25,8 +25,8 @@ render(
                 <City name="San Francisco" news="usa-today" timezone="America/Los_Angeles" />
             </div>
             <div className="ui row">
-                <Image src="http://www.rms.nsw.gov.au/trafficreports/cameras/camera_images/harbourbridge.jpg" />
-                <Image src="http://www.fogcam.org/fogcam2.jpg" />
+                <Image src="http://webcams.bsch.com.au/bondi_beach/538x404.jpg" />
+                <Image src="http://wwc.instacam.com/instacamimg/SANFR/SANFR_l.jpg" />
             </div>
             <div className="ui row">
                 <Forex base="USD" currency="AUD"/>

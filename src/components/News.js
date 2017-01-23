@@ -43,8 +43,9 @@ export default class News extends React.Component {
                     return <Loading />
                 } else {
                     let headlines = this.props.news[this.props.source].headlines
+                    let key = 0
                     return <div className="ui divided list">
-                        {headlines.map((headline) => <div className="item" style={itemStyle}>{headline}</div>)}
+                        {headlines.map((headline) => <div className="item" key={key++} style={itemStyle}>{headline}</div>)}
                     </div>
                 }
             })()}
